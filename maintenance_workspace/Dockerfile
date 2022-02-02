@@ -75,3 +75,15 @@ RUN --mount=type=cache,id=npm,target=/root/.npm \
 RUN --mount=type=cache,target=/tmp/gitleaks/ \
 curl -fsSLo /tmp/gitleaks/gitleaks.tar.gz https://github.com/zricethezav/gitleaks/releases/download/v8.2.7/gitleaks_8.2.7_linux_x64.tar.gz && \
 cd /tmp/gitleaks && tar -zxvf gitleaks.tar.gz && cp gitleaks /usr/local/bin
+
+FROM prerequisites as user_layer
+ARG UID=1000
+ARG GID=1000
+RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
+    apt install -y --no-install-recommends sudo
+RUN groupadd -g ${GID} developer &&\
+    useradd -l -u ${UID} -g developer developer &&\
+    install -d -m 0755 -o developer -g developer /home/developer &&\
+    usermod -aG sudo developer &&\
+    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+USER developer
