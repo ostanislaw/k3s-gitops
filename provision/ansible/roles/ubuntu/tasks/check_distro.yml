@@ -1,0 +1,23 @@
+---
+- name: Check armbian
+  stat:
+    path: /etc/armbian-release
+  register: armbian_file
+
+# - name: Check if armbian variable is set
+#   debug:
+#     msg: "armbian file exists"
+#   when: armbian_file.stat.exists
+
+- include: armbian/armbian.yml
+  when: armbian_file.stat.exists
+
+# - name: Check if armbian variable is not set
+#   debug:
+#     msg: "armbian file not exists"
+#   when: armbian_file.stat.exists == False
+
+# - name: Check if armbian variable is set
+#   debug:
+#     msg: "is_armbian set"
+#   when: is_armbian is defined and is_armbian

@@ -1,0 +1,10 @@
+---
+- name: Set armbian variable
+  set_fact:
+    is_armbian: True
+
+- include: ../locale.yml
+- include: packages.yml
+- include: ../network.yml
+- include: filesystem.yml
+- include: ../user.yml
