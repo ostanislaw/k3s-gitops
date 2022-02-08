@@ -1,20 +1,34 @@
 ---
+- include: check_distro.yml
+  tags:
+    - check_distro
+
+- name: Check if armbian variable is set
+  debug:
+    msg: "is_armbian set in main.yml, which means armbian/armbian.yml was processed -> skipping original ubuntu/tasks!!!!"
+  when: is_armbian is defined and is_armbian
+
 - include: locale.yml
+  when: is_armbian is not defined
   tags:
     - locale
 
 - include: packages.yml
+  when: is_armbian is not defined
   tags:
     - packages
 
 - include: network.yml
+  when: is_armbian is not defined
   tags:
     - network
 
 - include: filesystem.yml
+  when: is_armbian is not defined
   tags:
     - filesystem
 
 - include: user.yml
+  when: is_armbian is not defined
   tags:
     - user
