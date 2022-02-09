@@ -1,21 +1,12 @@
 ---
 - hosts:
     - master
+  become: true
   gather_facts: true
   any_errors_fatal: true
   pre_tasks:
     - name: Pausing for 5 seconds...
       pause:
         seconds: 5
-    - name: Mount a HDD volume
-      ansible.posix.mount:
-        path: /mnt/hdd
-        src: UUID=54785f3a-061e-43c8-8745-2a1fa28f3682
-        fstype: ext4
-        opts: defaults,noatime
-        passno: 2
-        state: mounted
-  vars:
-    nfs_exports: ["/mnt/hdd/exported 192.168.1.0/24(rw,all_squash,nohide,insecure,async,no_subtree_check)"]
   roles:
-    - { role: geerlingguy.nfs }
+    - role: role-nas

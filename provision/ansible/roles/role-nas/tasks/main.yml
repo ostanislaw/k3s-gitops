@@ -1,0 +1,16 @@
+---
+- include: hdd.yml
+  tags:
+    - hdd
+
+- include: nfs.yml
+  tags:
+    - nfs
+
+- include: ftp.yml
+  tags:
+    - ftp
+
+- include: samba.yml
+  tags:
+    - samba

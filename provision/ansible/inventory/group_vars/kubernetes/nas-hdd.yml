@@ -1,0 +1,11 @@
+---
+# (string) UUID of HDD
+hdd_uuid: "54785f3a-061e-43c8-8745-2a1fa28f3682"
+# (string) mount point for HDD
+hdd_mount: "/mnt/hdd"
+# (string) exported HDD path
+hdd_export: "{{ hdd_mount }}/exported"
+# (string) writable by smb HDD path
+hdd_writable_smb: "{{ hdd_export }}/writable_smb"
+# (string) exported HDD path
+hdd_audio_smb: "{{ hdd_export }}/plyty_audio_test"

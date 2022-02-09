@@ -1,0 +1,10 @@
+---
+- name: Install ftp
+  include_role:
+    name: bertvv.vsftpd
+  vars:
+    vsftpd_local_enable: true
+    vsftpd_local_umask: 000
+    vsftpd_write_enable: true
+    vsftpd_anonymous_enable: true
+    vsftpd_anon_root: "{{ hdd_export }}"
