@@ -1,0 +1,9 @@
+---
+- name: Mount a HDD volume
+  ansible.posix.mount:
+    path: "{{ hdd_mount }}"
+    src: "UUID={{ hdd_uuid }}"
+    fstype: ext4
+    opts: defaults,noatime
+    passno: "2"
+    state: mounted

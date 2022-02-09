@@ -1,0 +1,27 @@
+---
+- name: Install samba
+  include_role:
+    name: bertvv.samba
+  vars:
+    samba_mitigate_cve_2017_7494: false
+    samba_shares:
+      - name: exported
+        path: "{{ hdd_export }}"
+        public: yes
+        guest_ok: yes
+        browseable: yes
+        writable: no
+      - name: audio
+        path: "{{ hdd_audio_smb }}"
+        public: yes
+        guest_ok: yes
+        browseable: yes
+        writable: no
+      - name: write
+        path: "{{ hdd_writable_smb }}"
+        public: yes
+        guest_ok: yes
+        browseable: yes
+        writable: yes
+        create_mode: 666
+        directory_mode: 777

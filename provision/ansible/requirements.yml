@@ -11,3 +11,9 @@ roles:
     version: v3.1.0
   - src: geerlingguy.nfs
     version: 2.0.0
+  # - src: weareinteractive.vsftpd
+  #   version: 1.8.1
+  - src: bertvv.samba
+    version: v2.7.1
+  - src: bertvv.vsftpd
+    version: v2.1.0
