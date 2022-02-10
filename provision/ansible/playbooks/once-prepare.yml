@@ -1,0 +1,25 @@
+---
+#source https://github.com/ContainerSolutions/kubadm-ansible/raw/master/unique-machine-id.yml
+- hosts:
+    - master
+    - worker
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+  pre_tasks:
+    - name: Pausing for 5 seconds...
+      pause:
+        seconds: 5
+  tasks:
+    - name: remove /etc/machine-id
+      file:
+        path: /etc/machine-id
+        state: absent
+    - name: remove /var/lib/dbus/machine-id
+      file:
+        path: /var/lib/dbus/machine-id
+        state: absent
+    - name: generate new machine-id (dbus)
+      command: dbus-uuidgen --ensure
+    - name: generate new machine-id (systemd)
+      command: systemd-machine-id-setup
