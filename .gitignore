@@ -10,6 +10,9 @@ kubeconfig
 .config.env
 *.agekey
 # Ansible
+bertvv.samba*
+bertvv.vsftpd*
+geerlingguy.nfs*
 xanmanning.k3s*
 # Terraform
 .terraform
