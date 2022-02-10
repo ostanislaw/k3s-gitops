@@ -7,4 +7,4 @@ docker run --rm -it \
     -v ${HOME}:/home/developer \
     -w="/repo" \
     k3s_maintenance:latest \
-    bash
+    "$@"
