@@ -1,5 +1,5 @@
 # Work in progress
-1. Preparing ansible for Odroid N2+ Armbian Debian Bullseye
+1. Preparing ansible for Odroid N2+ Armbian Ubuntu Focal
 # Template for deploying k3s backed by Flux
 
 Highly opinionated template for deploying a single [k3s](https://k3s.io) cluster with [Ansible](https://www.ansible.com) and [Terraform](https://www.terraform.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
@@ -126,7 +126,23 @@ cluster
 
 ## :rocket:&nbsp; Lets go!
 
-Very first step will be to create a new repository by clicking the **Use this template** button on this page.
+1. Install docker on local workstation
+```sh
+maintenance_workspace/early_preparation_for_ansible/prepare_maintenance_workspace/install_docker.sh
+```
+2. Revise list of servers:
+```sh
+cat maintenance_workspace/early_preparation_for_ansible/prepare_nodes_for_ansible/list_of_servers.txt
+cat maintenance_workspace/early_preparation_for_ansible/prepare_nodes_for_ansible/former_list_of_servers.txt
+```
+3. Prepare ssh access and nopasswd sudo
+```sh
+cd maintenance_workspace/early_preparation_for_ansible/prepare_nodes_for_ansible
+./01_clear_ssh_keys.sh
+./02_copy_keys.sh
+./03_nopasswd.sh
+```
+4. Restore sops age keys or generate new ones
 
 Clone the repo to you local workstation and `cd` into it.
 
