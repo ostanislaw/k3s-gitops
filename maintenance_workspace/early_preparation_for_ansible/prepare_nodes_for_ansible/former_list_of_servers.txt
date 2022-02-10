@@ -1,0 +1,3 @@
+ostanislaw@odroid1.lan
+ostanislaw@odroid2.lan
+ostanislaw@odroid3.lan
