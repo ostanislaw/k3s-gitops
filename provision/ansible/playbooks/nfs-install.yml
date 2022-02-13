@@ -8,5 +8,29 @@
     - name: Pausing for 5 seconds...
       pause:
         seconds: 5
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
   roles:
     - role: role-nas
+- hosts:
+    - worker
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+  pre_tasks:
+    - name: display nas ip
+      ansible.builtin.debug:
+        var: nfs_server_ip
+    - name: Pausing for 5 seconds...
+      pause:
+        seconds: 5
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+  roles:
+    - role: role-nas-client

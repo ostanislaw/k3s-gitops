@@ -1,0 +1,15 @@
+---
+- name: Setup autofs handling nfs storage
+  include_role:
+    name: cmprescott.autofs
+  vars:
+    autofs_indirect_maps:
+      - name: "auto.nfs-other"
+        path: "/-"
+        mark: "NFS mount with root base"
+        options: "--timeout=300 --ghost"
+        mounts:
+          - name: "{{ hdd_export_nfs_mount }}"
+            # fstype: "nfs,rw,bg,hard,intr,tcp,resvport"
+            fstype: "nfs,defaults,noatime"
+            url: "{{ nfs_server_ip }}:{{ hdd_export }}"
