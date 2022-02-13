@@ -22,6 +22,12 @@ tasks:
     cmds:
       - "ansible all -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml --list-hosts"
 
+  playbook:display-facts:
+    desc: Display all facts
+    dir: provision/ansible
+    cmds:
+      - "ansible-playbook -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml {{.ANSIBLE_PLAYBOOK_DIR}}/display_all_facts.yml"
+
   playbook:once-prepare:
     desc: Run once after install (regenerate machine-id etc)
     dir: provision/ansible

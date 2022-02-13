@@ -1,5 +1,5 @@
 ---
-#source https://github.com/ContainerSolutions/kubadm-ansible/raw/master/unique-machine-id.yml
+# source https://github.com/ContainerSolutions/kubadm-ansible/raw/master/unique-machine-id.yml
 - hosts:
     - master
     - worker
@@ -23,3 +23,7 @@
       command: dbus-uuidgen --ensure
     - name: generate new machine-id (systemd)
       command: systemd-machine-id-setup
+# - name: Disable root login
+#   user:
+#     name: root
+#     password_lock: true

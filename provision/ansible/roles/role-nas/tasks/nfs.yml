@@ -3,4 +3,7 @@
   include_role:
     name: geerlingguy.nfs
   vars:
-    nfs_exports: ["{{ hdd_export }} 192.168.1.0/24(rw,all_squash,nohide,insecure,async,no_subtree_check)"]
+    net: "192.168.1.0/24"
+    opts: "(rw,all_squash,nohide,insecure,async,no_subtree_check)"
+    nfs_exports:
+      - "{{ hdd_export }} {{net}}{{opts}}"

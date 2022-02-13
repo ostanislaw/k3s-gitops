@@ -9,3 +9,8 @@ hdd_export: "{{ hdd_mount }}/exported"
 hdd_writable_smb: "{{ hdd_export }}/writable_smb"
 # (string) exported HDD path
 hdd_audio_smb: "{{ hdd_export }}/plyty_audio_test"
+# (string) mount point for NFS
+hdd_export_nfs_mount: "{{ hdd_export }}"
+master_name: "{{ groups['master'][0] }}"
+master_ip: "{{ hostvars[master_name]['ansible_default_ipv4']['address'] }}"
+nfs_server_ip: "{{ master_ip }}"
