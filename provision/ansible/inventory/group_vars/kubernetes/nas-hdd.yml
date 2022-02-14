@@ -8,7 +8,7 @@ hdd_export: "{{ hdd_mount }}/exported"
 # (string) writable by smb HDD path
 hdd_writable_smb: "{{ hdd_export }}/writable_smb"
 # (string) exported HDD path
-hdd_audio_smb: "{{ hdd_export }}/plyty_audio_test"
+hdd_audio_smb: "{{ hdd_export }}/SYNC/udostepnione/plyty_audio/"
 # (string) mount point for NFS
 hdd_export_nfs_mount: "{{ hdd_export }}"
 master_name: "{{ groups['master'][0] }}"
