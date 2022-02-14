@@ -10,6 +10,5 @@
         options: "--timeout=300 --ghost"
         mounts:
           - name: "{{ hdd_export_nfs_mount }}"
-            # fstype: "nfs,rw,bg,hard,intr,tcp,resvport"
-            fstype: "nfs,defaults,noatime"
+            fstype: "nfs,rw,async,bg,hard,intr,tcp"
             url: "{{ nfs_server_ip }}:{{ hdd_export }}"
