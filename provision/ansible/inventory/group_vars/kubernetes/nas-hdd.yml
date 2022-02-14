@@ -1,8 +1,10 @@
 ---
+# HDD MOUNT
 # (string) UUID of HDD
 hdd_uuid: "54785f3a-061e-43c8-8745-2a1fa28f3682"
 # (string) mount point for HDD
 hdd_mount: "/mnt/hdd"
+
 # (string) exported HDD path
 hdd_export: "{{ hdd_mount }}/exported"
 # (string) writable by smb HDD path
@@ -11,6 +13,19 @@ hdd_writable_smb: "{{ hdd_export }}/writable_smb"
 hdd_audio_smb: "{{ hdd_export }}/SYNC/udostepnione/plyty_audio/"
 # (string) mount point for NFS
 hdd_export_nfs_mount: "{{ hdd_export }}"
+# (string) name of master node (e.g. k0)
+
 master_name: "{{ groups['master'][0] }}"
+# (string) ip of master node (e.g. 192.168.1.30)
 master_ip: "{{ hostvars[master_name]['ansible_default_ipv4']['address'] }}"
+# (string) ip of nfs server (installed on master node)
 nfs_server_ip: "{{ master_ip }}"
+
+# (string) name of smb share for brother scanner
+smb_brother_share: "SCAN_BROTHER"
+# (string) path for brother scanner
+smb_brother_path: "{{ hdd_export }}/{{ smb_brother_share }}"
+# (string) name brother username
+smb_brother_user: "brother"
+# (string) name brother username
+smb_brother_pass: "brother"
