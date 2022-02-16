@@ -10,4 +10,4 @@
       pause:
         seconds: 5
   roles:
-    - nas
+    - ubuntu
