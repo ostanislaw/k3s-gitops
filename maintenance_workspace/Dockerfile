@@ -30,8 +30,6 @@ FROM repositories as prerequisites
 #DIRENV
 RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
     apt install -y direnv
-#FLUX CLI
-RUN curl -SL https://fluxcd.io/install.sh | bash
 #AGE
 # ubuntu 21.04+ has age in repository
 RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
@@ -81,6 +79,8 @@ RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/
 #ADDITIONAL TOOLS
 RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
     apt install -y git vim gettext-base less
+#FLUX CLI
+RUN curl -SL https://fluxcd.io/install.sh | bash
 
 FROM prerequisites as user_layer
 ARG UID=1000
