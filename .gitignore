@@ -14,6 +14,7 @@ bertvv.samba*
 bertvv.vsftpd*
 geerlingguy.nfs*
 xanmanning.k3s*
+cmprescott.autofs*
 # Terraform
 .terraform
 .terraform.tfstate*
