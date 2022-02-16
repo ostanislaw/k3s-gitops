@@ -1,5 +1,6 @@
 # Work in progress
 1. Preparing ansible for Odroid N2+ Armbian Ubuntu Focal
+2. Domain prepared and DNS set to cloudflare
 # Template for deploying k3s backed by Flux
 
 Highly opinionated template for deploying a single [k3s](https://k3s.io) cluster with [Ansible](https://www.ansible.com) and [Terraform](https://www.terraform.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
