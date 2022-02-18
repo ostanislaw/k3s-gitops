@@ -1,0 +1,56 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: pyload
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: pyload
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      version: 6.2.0
+  interval: 5m0s
+  values:
+    env:
+      PGID: "65534"
+      PUID: "65534"
+      TZ: Europe/Warsaw
+    image:
+      pullPolicy: IfNotPresent
+      repository: ghcr.io/linuxserver/pyload
+      tag: version-5de90278
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "weather-sunset"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hosts:
+          - host: "pyload.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - "pyload.${SECRET_DOMAIN}"
+            secretName: "hajimari-tls"
+    persistence:
+      config:
+        enabled: true
+        existingClaim: pyload-config
+      downloads:
+        enabled: true
+        existingClaim: nfs-downloads-media
+        mountPath: /mnt/storage/downloads
+    service:
+      main:
+        ports:
+          http:
+            port: 8000
