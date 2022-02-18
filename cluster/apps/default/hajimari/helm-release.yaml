@@ -70,8 +70,8 @@ spec:
               url: "https://design-milk.com/category/interior-design/"
             - name: Dwell
               url: "https://www.dwell.com/"
-            - name: Freshome
-              url: "https://www.mymove.com/freshome/"
+            - name: Allegro
+              url: "https://allegro.pl/"
         - name: Media
           links:
             - name: Spotify
