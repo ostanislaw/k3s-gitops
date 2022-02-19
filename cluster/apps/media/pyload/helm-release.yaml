@@ -48,7 +48,6 @@ spec:
       downloads:
         enabled: true
         existingClaim: nfs-downloads-media
-        mountPath: /downloads
     service:
       main:
         ports:
