@@ -18,7 +18,7 @@ spec:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    server: "192.168.1.30"
+    server: "k0.lan"
     path: "/mnt/hdd/exported/downloads"
 ---
 apiVersion: v1
