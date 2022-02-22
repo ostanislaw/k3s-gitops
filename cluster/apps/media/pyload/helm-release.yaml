@@ -7,6 +7,7 @@ metadata:
 spec:
   chart:
     spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
       chart: pyload
       sourceRef:
         kind: HelmRepository
@@ -14,6 +15,7 @@ spec:
         namespace: flux-system
       version: 6.2.0
   interval: 5m0s
+  # Values link: https://github.com/k8s-at-home/charts/blob/master/charts/stable/pyload/values.yaml
   values:
     env:
       PGID: "65534"
@@ -40,14 +42,16 @@ spec:
         tls:
           - hosts:
               - "pyload.${SECRET_DOMAIN}"
-            secretName: "hajimari-tls"
+            secretName: "pyload-tls"
     persistence:
       config:
         enabled: true
         existingClaim: pyload-config
+        # mountPath: /config
       downloads:
         enabled: true
         existingClaim: nfs-downloads-media
+        # mountPath: /downloads
     service:
       main:
         ports:
