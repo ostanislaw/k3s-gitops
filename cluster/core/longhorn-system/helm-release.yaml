@@ -24,6 +24,11 @@ spec:
       # defaultClass: true
       defaultClassReplicaCount: 2
       # reclaimPolicy: Retain
+    csi:
+      attacherReplicaCount: 2
+      provisionerReplicaCount: 2
+      resizerReplicaCount: 2
+      snapshotterReplicaCount: 2
     defaultSettings:
       # backupstorePollInterval: 300
       # backupTarget: nfs://${RACKNAS_ADDR}:/volume1/LonghornBackupstore
@@ -36,23 +41,24 @@ spec:
       # replicaSoftAntiAffinity: false
       storageMinimalAvailablePercentage: 10
     ingress:
-      enabled: true
-      ingressClassName: "traefik"
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-production"
-        hajimari.io/enable: "true"
-        hajimari.io/icon: "air-horn"
-        hajimari.io/group: storage
-        hajimari.io/appName: longhorn
-        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-        traefik.ingress.kubernetes.io/router.middlewares: traefik-default-middlewares-chain@kubernetescrd
-        traefik.ingress.kubernetes.io/router.tls.options: traefik-secure-tlsoptions@kubernetescrd
-      hosts:
-        - host: "longhorn.${SECRET_DOMAIN}"
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-            - "longhorn.${SECRET_DOMAIN}"
-          secretName: "longhorn-tls"
+      enabled: false
+      # enabled: true
+      # ingressClassName: "traefik"
+      # annotations:
+      #   cert-manager.io/cluster-issuer: "letsencrypt-production"
+      #   hajimari.io/enable: "true"
+      #   hajimari.io/icon: "air-horn"
+      #   hajimari.io/group: storage
+      #   hajimari.io/appName: longhorn
+      #   traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+      #   traefik.ingress.kubernetes.io/router.middlewares: traefik-default-middlewares-chain@kubernetescrd
+      #   traefik.ingress.kubernetes.io/router.tls.options: traefik-secure-tlsoptions@kubernetescrd
+      # hosts:
+      #   - host: "longhorn.${SECRET_DOMAIN}"
+      #     paths:
+      #       - path: /
+      #         pathType: Prefix
+      # tls:
+      #   - hosts:
+      #       - "longhorn.${SECRET_DOMAIN}"
+      #     secretName: "longhorn-tls"
