@@ -45,10 +45,10 @@ spec:
       ingressClassName: "traefik"
       annotations:
         cert-manager.io/cluster-issuer: "selfsigned-issuer"
-        #   hajimari.io/enable: "true"
-        #   hajimari.io/icon: "air-horn"
-        #   hajimari.io/group: storage
-        #   hajimari.io/appName: longhorn
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "air-horn"
+        hajimari.io/group: storage
+        hajimari.io/appName: longhorn
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         traefik.ingress.kubernetes.io/router.middlewares: networking-rfc1918-ips@kubernetescrd
         #   traefik.ingress.kubernetes.io/router.middlewares: traefik-default-middlewares-chain@kubernetescrd
