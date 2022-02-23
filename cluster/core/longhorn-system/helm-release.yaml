@@ -57,7 +57,11 @@ spec:
           paths:
             - path: /
               pathType: Prefix
-      tls:
-        - hosts:
-            - "longhorn.${SECRET_DOMAIN}"
-          secretName: "longhorn-tls"
+      path: /
+      host: "longhorn.${SECRET_DOMAIN}"
+      tls: true
+      tlsSecret: "longhorn-tls"
+      # tls:
+      #   - hosts:
+      #       - "longhorn.${SECRET_DOMAIN}"
+      #     secretName: "longhorn-tls"
