@@ -49,7 +49,7 @@ spec:
       #   hajimari.io/icon: "air-horn"
       #   hajimari.io/group: storage
       #   hajimari.io/appName: longhorn
-        traefik.ingress.kubernetes.io/router.entrypoints: "web"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       #   traefik.ingress.kubernetes.io/router.middlewares: traefik-default-middlewares-chain@kubernetescrd
       #   traefik.ingress.kubernetes.io/router.tls.options: traefik-secure-tlsoptions@kubernetescrd
       hosts:
