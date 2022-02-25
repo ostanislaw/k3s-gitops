@@ -30,7 +30,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: nfs-syncthing-media
+  # storageClassName: nfs-syncthing-media
   resources:
     requests:
       storage: 1Mi
