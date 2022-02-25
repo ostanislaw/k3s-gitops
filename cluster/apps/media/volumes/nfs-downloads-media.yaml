@@ -12,7 +12,7 @@ metadata:
   name: nfs-downloads-media
   # namespace: media
 spec:
-  storageClassName: nfs-downloads-media
+  # storageClassName: nfs-downloads-media
   capacity:
     storage: 1Mi
   accessModes:
