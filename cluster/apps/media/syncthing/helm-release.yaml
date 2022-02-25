@@ -47,11 +47,13 @@ spec:
       data:
         enabled: true
         existingClaim: nfs-syncthing-media
+        mountPath: /var/storage
+      config:
+        enabled: true
+        existingClaim: syncthing-config
+        # config would be created in /var/syncthing/config
+        # folder path should be set to /var/storage in settings
         mountPath: /var/syncthing
-      # config:
-      #   enabled: true
-      #   existingClaim: syncthing-config
-      #   mountPath: /var/syncthing/config
     service:
       # main:
       #   ports:
