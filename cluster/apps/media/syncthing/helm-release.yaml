@@ -48,6 +48,10 @@ spec:
         enabled: true
         existingClaim: nfs-syncthing-media
         mountPath: /var/syncthing
+      config:
+        enabled: true
+        existingClaim: syncthing-config
+        mountPath: /var/syncthing/config
     service:
       # main:
       #   ports:
