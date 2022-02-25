@@ -1,18 +1,18 @@
 ---
-# kind: StorageClass
-# apiVersion: storage.k8s.io/v1
-# metadata:
-#   name: nfs-syncthing-media
-# provisioner: nfs
-# reclaimPolicy: Retain
-# ---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: nfs-syncthing-media
+provisioner: nfs
+reclaimPolicy: Retain
+---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: nfs-syncthing-media
   # namespace: media
 spec:
-  # storageClassName: nfs-syncthing-media
+  storageClassName: nfs-syncthing-media
   capacity:
     storage: 1Mi
   accessModes:
@@ -28,9 +28,9 @@ metadata:
   name: nfs-syncthing-media
   namespace: media
 spec:
+  storageClassName: nfs-syncthing-media
   accessModes:
     - ReadWriteMany
-  # storageClassName: nfs-syncthing-media
   resources:
     requests:
       storage: 1Mi
