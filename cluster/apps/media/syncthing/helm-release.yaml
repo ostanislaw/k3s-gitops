@@ -46,7 +46,7 @@ spec:
     persistence:
       data:
         enabled: true
-        existingClaim: nfs-downloads-media
+        existingClaim: nfs-syncthing-media
         mountPath: /var/syncthing
     service:
       # main:
