@@ -20,7 +20,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: "k0.lan"
-    path: "/mnt/hdd/exported/SYNC/syncthing2"
+    path: "/mnt/hdd/exported/SYNC/Syncthing"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
