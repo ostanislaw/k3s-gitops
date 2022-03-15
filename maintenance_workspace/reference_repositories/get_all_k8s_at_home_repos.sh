@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl -s https://github.com/k8s-at-home/awesome-home-kubernetes | grep href=\"https://github.com | sed -n "s/<td><a href=\"//p"  | sed 's/\">.*//g' | grep --invert-match 'p3lim/rudder' > repo_list.txt
+curl -s https://github.com/k8s-at-home/awesome-home-kubernetes | grep href=\"https://github.com | sed -n "s/<td><a href=\"//p"  | sed 's/\">.*//g' | grep --invert-match 'p3lim/rudder' | grep --invert-match 'zbigniewzolnierowicz' > repo_list.txt
 
 while read p; do
   md5=$(echo $p | md5sum | cut -d ' ' -f 1)
