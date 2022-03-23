@@ -1,0 +1,42 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cloudflared
+  namespace: networking
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: cloudflared
+      version: 0.3.3
+      sourceRef:
+        kind: HelmRepository
+        name: cloudflared-charts
+        namespace: flux-system
+      interval: 5m
+  values: # values ref https://github.com/khuedoan/charts/blob/master/charts/cloudflared/values.yaml
+    image:
+      #repository: crazymax/cloudflared
+      #repository: cloudflare/cloudflared
+      repository: raspbernetes/cloudflared
+      # Overrides the image tag whose default is the chart appVersion.
+      tag: "2022.3.3"
+    credentials:
+      existingSecret: cloudflared-credentials
+    config:
+      tunnel: t1
+      ingress:
+        - hostname: etraefik.${SECRET_DOMAIN}
+          service: https://traefik.networking:443
+          originRequest:
+            originServerName: traefik.${SECRET_DOMAIN}
+            httpHostHeader: traefik.${SECRET_DOMAIN}
+            # noTLSVerify: true
+        - hostname: ehajimari.${SECRET_DOMAIN}
+          service: https://traefik.networking:443
+          originRequest:
+            originServerName: hajimari.${SECRET_DOMAIN}
+            httpHostHeader: hajimari.${SECRET_DOMAIN}
+            # noTLSVerify: true
+        - service: http_status:404
