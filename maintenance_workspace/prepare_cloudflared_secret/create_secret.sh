@@ -1,2 +1,2 @@
 #!/bin/bash
-kubectl create secret generic cloudflared-credentials -n networking --from-file=credentials.json  --output=yaml --dry-run=client
+kubectl create secret generic cloudflared-credentials -n networking --from-file=credentials.json  --output=yaml --dry-run=client > secret.sops.yaml
