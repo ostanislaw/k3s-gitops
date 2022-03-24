@@ -4,5 +4,6 @@ resources:
   - gotk-components.yaml
   - gotk-sync.yaml
   - charts
-patchesStrategicMerge:
-  - ./gotk-patches.yaml
+#flux-system   flux-system    False   kustomize build failed: accumulating resources: accumulation err='accumulating resources from './flux-system': read /tmp/flux-system4178747945/cluster/base/flux-system: is a directory': recursed accumulation of path '/tmp/flux-system4178747945/cluster/base/flux-system': no matches for Id NetworkPolicy.v1.networking.k8s.io/allow-egress.flux-system; failed to find unique target for patch NetworkPolicy.v1.networking.k8s.io/allow-egress.flux-system
+# patchesStrategicMerge:
+#   - ./gotk-patches.yaml
