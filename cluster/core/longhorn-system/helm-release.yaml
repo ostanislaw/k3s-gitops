@@ -31,7 +31,7 @@ spec:
       snapshotterReplicaCount: 2
     defaultSettings:
       # backupstorePollInterval: 300
-      backupTarget: nfs://k0.lan:/mnt/hdd/exported/LonghornBackupstore
+      backupTarget: ${LONGHORN_BACKUP_TARGET}
       # createDefaultDiskLabeledNodes: true
       # defaultDataLocality: best-effort
       nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
