@@ -52,4 +52,10 @@ spec:
             originServerName: longhorn.${SECRET_DOMAIN}
             httpHostHeader: longhorn.${SECRET_DOMAIN}
             # noTLSVerify: true
+        - hostname: xpyload.${SECRET_DOMAIN}
+          service: https://traefik.networking:443
+          originRequest:
+            originServerName: pyload.${SECRET_DOMAIN}
+            httpHostHeader: pyload.${SECRET_DOMAIN}
+            # noTLSVerify: true
         - service: http_status:404
