@@ -41,7 +41,7 @@ spec:
           - hosts:
             # secretName: "filebrowser-tls"
               - "filebrowser.${SECRET_DOMAIN}"
-    # nodeSelector:
+    nodeSelector:
       kubernetes.io/hostname: k0
     persistence:
       config:
