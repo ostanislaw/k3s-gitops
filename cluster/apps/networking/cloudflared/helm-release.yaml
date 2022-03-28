@@ -58,4 +58,6 @@ spec:
             originServerName: pyload.${SECRET_DOMAIN}
             httpHostHeader: pyload.${SECRET_DOMAIN}
             # noTLSVerify: true
+        - hostname: ssh.${SECRET_DOMAIN}
+          service: ${SECRET_SSH_COMMAND}
         - service: http_status:404
