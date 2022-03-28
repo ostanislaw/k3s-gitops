@@ -17,8 +17,8 @@ spec:
         name: longhorn-charts
         namespace: flux-system
       interval: 5m
-# default values: https://github.com/longhorn/longhorn/blob/master/chart/questions.yaml
-# example values: https://github.com/npawelek/k8s-gitops/blob/master/cluster/core/longhorn-system/helmrelease.yaml
+  # default values: https://github.com/longhorn/longhorn/blob/master/chart/questions.yaml
+  # example values: https://github.com/npawelek/k8s-gitops/blob/master/cluster/core/longhorn-system/helmrelease.yaml
   values:
     persistence:
       # defaultClass: true
@@ -44,7 +44,7 @@ spec:
       enabled: true
       ingressClassName: "traefik"
       annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        # cert-manager.io/cluster-issuer: "letsencrypt-production"
         # cert-manager.io/cluster-issuer: "selfsigned-issuer"
         hajimari.io/enable: "true"
         hajimari.io/icon: "cow"
@@ -62,8 +62,4 @@ spec:
       path: /
       host: "longhorn.${SECRET_DOMAIN}"
       tls: true
-      tlsSecret: "longhorn-tls"
-      # tls:
-      #   - hosts:
-      #       - "longhorn.${SECRET_DOMAIN}"
-      #     secretName: "longhorn-tls"
+      # tlsSecret: "longhorn-tls"
