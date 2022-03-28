@@ -20,7 +20,7 @@ spec:
     env:
       PGID: "65534"
       PUID: "65534"
-      TZ: Europe/Warsaw
+      TZ: ${TIMEZONE}
     image:
       repository: syncthing/syncthing
       tag: 1.19.0
