@@ -38,8 +38,8 @@ spec:
           paths:
             - "/"
       tls:
-        hosts:
-          - "echo-server.${SECRET_DOMAIN}"
+        - hosts:
+            - "echo-server.${SECRET_DOMAIN}"
     resources:
       requests:
         cpu: 50m
