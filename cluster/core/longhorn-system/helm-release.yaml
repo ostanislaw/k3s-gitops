@@ -44,9 +44,10 @@ spec:
       enabled: true
       ingressClassName: "traefik"
       annotations:
-        cert-manager.io/cluster-issuer: "selfsigned-issuer"
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        # cert-manager.io/cluster-issuer: "selfsigned-issuer"
         hajimari.io/enable: "true"
-        hajimari.io/icon: "air-horn"
+        hajimari.io/icon: "cow"
         hajimari.io/group: storage
         hajimari.io/appName: longhorn
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
