@@ -110,7 +110,6 @@ spec:
         enabled: true
         ingressClassName: "traefik"
         annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           hajimari.io/icon: "weather-sunset"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
@@ -123,7 +122,6 @@ spec:
         tls:
           - hosts:
               - "hajimari.${SECRET_DOMAIN}"
-            secretName: "hajimari-tls"
     persistence:
       data:
         enabled: true
