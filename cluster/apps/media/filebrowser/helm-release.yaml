@@ -28,7 +28,7 @@ spec:
         enabled: true
         ingressClassName: "traefik"
         annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          # cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           hajimari.io/icon: "file-tree"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
@@ -39,9 +39,9 @@ spec:
                 pathType: Prefix
         tls:
           - hosts:
+            # secretName: "filebrowser-tls"
               - "filebrowser.${SECRET_DOMAIN}"
-            secretName: "filebrowser-tls"
-    nodeSelector:
+    # nodeSelector:
       kubernetes.io/hostname: k0
     persistence:
       config:
