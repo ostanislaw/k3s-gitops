@@ -28,19 +28,19 @@ spec:
     config:
       tunnel: t1
       ingress:
-        - hostname: etraefik.${SECRET_DOMAIN}
+        - hostname: xtraefik.${SECRET_DOMAIN}
           service: https://traefik.networking:443
           originRequest:
             originServerName: traefik.${SECRET_DOMAIN}
             httpHostHeader: traefik.${SECRET_DOMAIN}
             # noTLSVerify: true
-        - hostname: ehajimari.${SECRET_DOMAIN}
+        - hostname: xhajimari.${SECRET_DOMAIN}
           service: https://traefik.networking:443
           originRequest:
             originServerName: hajimari.${SECRET_DOMAIN}
             httpHostHeader: hajimari.${SECRET_DOMAIN}
             # noTLSVerify: true
-        - hostname: efilebrowser.${SECRET_DOMAIN}
+        - hostname: xfilebrowser.${SECRET_DOMAIN}
           service: https://traefik.networking:443
           originRequest:
             originServerName: filebrowser.${SECRET_DOMAIN}
