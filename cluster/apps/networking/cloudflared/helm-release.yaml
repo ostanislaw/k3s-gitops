@@ -40,4 +40,10 @@ spec:
             originServerName: hajimari.${SECRET_DOMAIN}
             httpHostHeader: hajimari.${SECRET_DOMAIN}
             # noTLSVerify: true
+        - hostname: efilebrowser.${SECRET_DOMAIN}
+          service: https://traefik.networking:443
+          originRequest:
+            originServerName: filebrowser.${SECRET_DOMAIN}
+            httpHostHeader: filebrowser.${SECRET_DOMAIN}
+            # noTLSVerify: true
         - service: http_status:404
