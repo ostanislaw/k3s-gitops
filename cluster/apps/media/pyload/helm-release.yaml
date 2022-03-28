@@ -20,7 +20,7 @@ spec:
     env:
       PGID: "65534"
       PUID: "65534"
-      TZ: Europe/Warsaw
+      TZ: ${TIMEZONE}
     image:
       pullPolicy: IfNotPresent
       repository: ghcr.io/linuxserver/pyload
