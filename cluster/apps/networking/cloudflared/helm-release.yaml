@@ -58,6 +58,12 @@ spec:
             originServerName: pyload.${SECRET_DOMAIN}
             httpHostHeader: pyload.${SECRET_DOMAIN}
             # noTLSVerify: true
+        - hostname: router.${SECRET_DOMAIN}
+          service: http://itotolink.net
+        - hostname: kodi.${SECRET_DOMAIN}
+          service: http://kodi.lan:8080
+        - hostname: hello.${SECRET_DOMAIN}
+          service: hello_world
         - hostname: ssh.${SECRET_DOMAIN}
           service: ${SECRET_SSH_COMMAND}
         - service: http_status:404
