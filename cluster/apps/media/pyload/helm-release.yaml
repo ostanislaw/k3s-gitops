@@ -23,8 +23,10 @@ spec:
       TZ: ${TIMEZONE}
     image:
       pullPolicy: IfNotPresent
-      repository: ghcr.io/linuxserver/pyload
-      tag: version-5de90278
+      #repository: ghcr.io/linuxserver/pyload
+      #tag: version-5de90278
+      repository: ghcr.io/linuxserver/pyload-ng
+      tag: version-0.5.0b3.dev22
     ingress:
       main:
         enabled: true
