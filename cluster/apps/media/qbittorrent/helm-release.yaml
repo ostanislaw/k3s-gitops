@@ -73,7 +73,7 @@ spec:
       downloads:
         enabled: true
         existingClaim: qbittorrent-config
-        mountPath: /config
+        # mountPath: /config
     podSecurityContext:
       supplementalGroups:
         - 5600
