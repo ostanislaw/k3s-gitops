@@ -65,18 +65,16 @@ spec:
       config:
         enabled: false
       #   existingClaim: qbittorrent-config
-      #   mountPath: /config
       media:
         enabled: true
         existingClaim: nfs-torrent-media
-        # mountPath: /media
       downloads:
         enabled: true
         existingClaim: qbittorrent-config
-        # mountPath: /config
     podSecurityContext:
-      supplementalGroups:
-        - 5600
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
     resources:
       requests:
         memory: 250Mi
