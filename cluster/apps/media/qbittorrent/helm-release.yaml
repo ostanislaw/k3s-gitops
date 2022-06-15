@@ -74,6 +74,9 @@ spec:
         # enabled: true
         # existingClaim: qbittorrent-config
         # mountPath: /config
+    podSecurityContext:
+      supplementalGroups:
+        - 5600
     resources:
       requests:
         memory: 250Mi
