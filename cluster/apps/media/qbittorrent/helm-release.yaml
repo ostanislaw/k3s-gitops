@@ -18,8 +18,8 @@ spec:
   # Values link: https://github.com/k8s-at-home/charts/blob/master/charts/stable/qbittorrent/values.yaml
   values:
     env:
-      PGID: "65534"
-      PUID: "65534"
+      # PGID: "65534"
+      # PUID: "65534"
       TZ: ${TIMEZONE}
     image:
       pullPolicy: IfNotPresent
@@ -65,11 +65,11 @@ spec:
       config:
         enabled: true
         existingClaim: qbittorrent-config
-        # mountPath: /config
+        mountPath: /config
       media:
         enabled: true
         existingClaim: nfs-torrent-media
-        # mountPath: /downloads
+        mountPath: /media
     resources:
       requests:
         memory: 250Mi
