@@ -1,0 +1,36 @@
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: nfs-torrent-media
+provisioner: nfs
+reclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-torrent-media
+  # namespace: media
+spec:
+  storageClassName: nfs-torrent-media
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: "k0.lan"
+    path: "/mnt/hdd/exported/downloads_torrent"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-torrent-media
+  namespace: media
+spec:
+  storageClassName: nfs-torrent-media
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Mi
