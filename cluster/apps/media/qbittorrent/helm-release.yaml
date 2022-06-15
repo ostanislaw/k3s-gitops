@@ -62,18 +62,18 @@ spec:
     #   prometheusRule:
     #     enabled: true
     persistence:
-      config:
-        enabled: true
-        existingClaim: qbittorrent-config
-        mountPath: /config
+      # config:
+      #   enabled: true
+      #   existingClaim: qbittorrent-config
+      #   mountPath: /config
       media:
         enabled: true
         existingClaim: nfs-torrent-media
         # mountPath: /media
-      # downloads:
-        # enabled: true
-        # existingClaim: qbittorrent-config
-        # mountPath: /config
+      downloads:
+        enabled: true
+        existingClaim: qbittorrent-config
+        mountPath: /config
     podSecurityContext:
       supplementalGroups:
         - 5600
