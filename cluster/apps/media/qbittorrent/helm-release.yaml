@@ -63,16 +63,16 @@ spec:
     #     enabled: true
     persistence:
       config:
-        enabled: false
-        # existingClaim: qbittorrent-config
-        # mountPath: /config
+        enabled: true
+        existingClaim: qbittorrent-config
+        mountPath: /config
       media:
         enabled: true
         existingClaim: nfs-torrent-media
         # mountPath: /media
-      downloads:
-        enabled: true
-        existingClaim: qbittorrent-config
+      # downloads:
+        # enabled: true
+        # existingClaim: qbittorrent-config
         # mountPath: /config
     resources:
       requests:
