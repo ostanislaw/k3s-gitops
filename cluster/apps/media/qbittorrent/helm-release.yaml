@@ -70,8 +70,12 @@ spec:
         # existingClaim: nfs-torrent-media
       downloads:
         enabled: true
-        existingClaim: nfs-torrent-media
+        # existingClaim: nfs-torrent-media
         # existingClaim: qbittorrent-config
+        type: hostPath
+        hostPath: ${HDD_EXPORTED_PATH}/downloads-torrent
+    nodeSelector:
+      kubernetes.io/hostname: k0
     podSecurityContext:
       runAsUser: 65534
       runAsGroup: 65534
