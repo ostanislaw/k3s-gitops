@@ -73,9 +73,9 @@ spec:
         existingClaim: nfs-torrent-media
         # existingClaim: qbittorrent-config
     podSecurityContext:
-      runAsUser: 65534
-      runAsGroup: 65534
-      fsGroup: 65534
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
     resources:
       requests:
         memory: 250Mi
