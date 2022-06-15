@@ -63,14 +63,14 @@ spec:
     #     enabled: true
     persistence:
       config:
-        enabled: false
-      #   existingClaim: qbittorrent-config
+        enabled: true
+        existingClaim: qbittorrent-config
       media:
         enabled: true
         existingClaim: nfs-torrent-media
       downloads:
-        enabled: true
-        existingClaim: qbittorrent-config
+        enabled: false
+        # existingClaim: qbittorrent-config
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568
