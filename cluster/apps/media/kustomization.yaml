@@ -4,5 +4,6 @@ resources:
   - filebrowser
   - namespace.yaml
   - pyload
+  - qbittorrent
   - syncthing
   - volumes

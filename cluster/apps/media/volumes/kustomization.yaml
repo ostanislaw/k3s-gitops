@@ -2,4 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - nfs-downloads-media.yaml
+  - nfs-torrent-media.yaml
   - nfs-syncthing-media.yaml
