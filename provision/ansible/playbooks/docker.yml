@@ -1,0 +1,9 @@
+---
+- hosts:
+    - nas
+  vars:
+    docker_users:
+      - "{{ ansible_user }}"
+  roles:
+    - role: geerlingguy.pip
+    - role: geerlingguy.docker_arm

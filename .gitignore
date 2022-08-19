@@ -16,6 +16,7 @@ geerlingguy.nfs*
 xanmanning.k3s*
 cmprescott.autofs*
 geerlingguy.docker*
+geerlingguy.pip*
 # Terraform
 .terraform
 .terraform.tfstate*
