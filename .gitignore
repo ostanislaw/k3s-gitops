@@ -15,6 +15,7 @@ bertvv.vsftpd*
 geerlingguy.nfs*
 xanmanning.k3s*
 cmprescott.autofs*
+geerlingguy.docker*
 # Terraform
 .terraform
 .terraform.tfstate*
