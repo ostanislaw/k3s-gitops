@@ -13,13 +13,15 @@ hdd_writable_smb: "{{ hdd_export }}/writable_smb"
 hdd_audio_smb: "{{ hdd_export }}/SYNC/udostepnione/plyty_audio/"
 # (string) mount point for NFS
 hdd_export_nfs_mount: "{{ hdd_export }}"
-# (string) name of master node (e.g. k0)
 
+# (string) name of node (e.g. k0)
 master_name: "{{ groups['master'][0] }}"
-# (string) ip of master node (e.g. 192.168.1.30)
+nas_name: "{{ groups['nas'][0] }}"
+# (string) ip of node (e.g. 192.168.1.30)
 master_ip: "{{ hostvars[master_name]['ansible_default_ipv4']['address'] }}"
-# (string) ip of nfs server (installed on master node)
-nfs_server_ip: "{{ master_ip }}"
+nas_ip: "{{ hostvars[nas_name]['ansible_default_ipv4']['address'] }}"
+# (string) ip of nfs server (installed on nas unit)
+nfs_server_ip: "{{ nas_ip }}"
 
 # (string) name of smb share for brother scanner
 smb_brother_share: "SCAN_BROTHER"
