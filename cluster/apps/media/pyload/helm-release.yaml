@@ -18,8 +18,8 @@ spec:
   # Values link: https://github.com/k8s-at-home/charts/blob/master/charts/stable/pyload/values.yaml
   values:
     env:
-      PGID: "65534"
-      PUID: "65534"
+      PGID: "1000"
+      PUID: "1000"
       TZ: ${TIMEZONE}
     image:
       pullPolicy: IfNotPresent

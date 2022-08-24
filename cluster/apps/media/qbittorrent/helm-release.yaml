@@ -18,8 +18,8 @@ spec:
   # Values link: https://github.com/k8s-at-home/charts/blob/master/charts/stable/qbittorrent/values.yaml
   values:
     env:
-      # PGID: "65534"
-      # PUID: "65534"
+      # PGID: "1000"
+      # PUID: "1000"
       TZ: ${TIMEZONE}
     image:
       pullPolicy: IfNotPresent
@@ -77,9 +77,9 @@ spec:
     nodeSelector:
       kubernetes.io/hostname: k0
     podSecurityContext:
-      runAsUser: 65534
-      runAsGroup: 65534
-      fsGroup: 65534
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
     resources:
       requests:
         memory: 250Mi
