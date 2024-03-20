@@ -59,14 +59,10 @@ RUN curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/
 #PRE-COMMIT
 RUN --mount=type=cache,id=pip,target=/root/.cache/pip \
     pip3 install pre-commit
-#ANSIBLE
-RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
-    apt install -y ansible
 #SOPS
 RUN --mount=type=tmpfs,target=/tmp/sops_deb --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
     curl -fsSLo /tmp/sops_deb/sops.deb https://github.com/mozilla/sops/releases/download/v3.7.1/sops_3.7.1_amd64.deb && \
     apt install /tmp/sops_deb/sops.deb
-
 #PRETTIER
 RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
     apt install -y --no-install-recommends npm
@@ -84,6 +80,11 @@ RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/
     apt install -y git vim gettext-base less
 #FLUX CLI
 RUN curl -SL https://fluxcd.io/install.sh | bash
+#ANSIBLE
+# RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
+#     apt install -y ansible
+RUN --mount=type=cache,id=pip,target=/root/.cache/pip \
+    pip3 install ansible-core==2.15.0
 
 FROM prerequisites as user_layer
 ARG UID=1000
