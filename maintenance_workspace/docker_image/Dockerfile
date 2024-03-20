@@ -7,7 +7,7 @@ RUN rm -f /etc/apt/apt.conf.d/docker-clean; echo 'Binary::apt::APT::Keep-Downloa
 RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
     apt update
 RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
-    apt install -y --no-install-recommends curl apt-transport-https software-properties-common python3-pip gnupg2
+    apt install -y --no-install-recommends curl apt-transport-https software-properties-common python3-pip gnupg2 build-essential python3-dev
 #FOR YARN
 RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
     apt install -y cmdtest
@@ -27,6 +27,9 @@ RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/
     apt update
 
 FROM repositories as prerequisites
+#DIRENV
+RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
+    apt install -y direnv
 #DIRENV
 RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
     apt install -y direnv
