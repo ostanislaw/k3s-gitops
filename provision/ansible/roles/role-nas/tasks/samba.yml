@@ -1,10 +1,13 @@
 ---
-- name: Create a user for brother smb
+- name: Create a user for brother smb and ftp
   ansible.builtin.user:
-    name: "{{ smb_brother_user }}"
-    password_lock: yes
+    # share same user for smb and ftp
+    name: "{{ ftp_brother_user }}"
+    # password_lock: yes
+    password: "{{ ftp_brother_pass }}"
     state: present
-    system: yes
+    # system: yes
+    home: "{{ ftp_brother_path }}"
 - name: Install samba
   include_role:
     name: bertvv.samba

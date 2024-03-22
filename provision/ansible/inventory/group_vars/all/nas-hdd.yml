@@ -24,10 +24,17 @@ nas_ip: "{{ hostvars[nas_name]['ansible_default_ipv4']['address'] }}"
 nfs_server_ip: "{{ nas_ip }}"
 
 # (string) name of smb share for brother scanner
+ftp_brother_path: "{{ hdd_export }}/{{ smb_brother_share }}"
+# (string) name brother username
+ftp_brother_user: "brother"
+# (string) hashed(/etc/shadow) brother password defined at n0.sops.yml
+# ftp_brother_pass: defined at n0.sops.yml
+
+# (string) name of smb share for brother scanner
 smb_brother_share: "SCAN_BROTHER"
 # (string) path for brother scanner
-smb_brother_path: "{{ hdd_export }}/{{ smb_brother_share }}"
+smb_brother_path: "{{ ftp_brother_path }}"
 # (string) name brother username
-smb_brother_user: "brother"
+smb_brother_user: "{{ ftp_brother_user }}"
 # (string) name brother username
 smb_brother_pass: "brother"
