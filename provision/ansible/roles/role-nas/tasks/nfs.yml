@@ -5,6 +5,6 @@
   vars:
     #net: "192.168.1.0/24"
     net: "*"
-    opts: "(rw,root_squash,nohide,insecure,async,no_subtree_check)"
+    opts: "(rw,all_squash,nohide,insecure,async,no_subtree_check,anonuid=1000,anongid=1000)"
     nfs_exports:
       - "{{ hdd_export }} {{net}}{{opts}}"
